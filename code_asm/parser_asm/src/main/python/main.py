@@ -1,74 +1,14 @@
 import inspect
 import os
+import json
 
 from bcolors import bcolors
 from src.main.python.functions import Functions
 
-shift_add_sub_mov = {
-    "LSLS": {"doublon": True, "#imm": 1, "R": 2, "function": "lsl"},
-    "LSRS": {"doublon": True, "#imm": 1, "R": 2, "function": "lsr"},
-    "ASRS": {"doublon": True, "#imm": 1, "R": 2, "function": "asr"},
-    "ADDS": {"doublon": True, "#imm": 1, "R": 2, "function": "add_3bit_intermediate"},
-    "SUBS": {"doublon": True, "#imm": 1, "R": 2, "function": "sub_3bit_intermediate"},
-    "MOVS": {"doublon": False, "#imm": 1, "R": 1, "function": "mov"},
-}
-
-adds_subs = {
-    "ADDS": {"doublon": True, "#imm": 0, "R": 3, "function": "add_register"},
-    "SUBS": {"doublon": True, "#imm": 0, "R": 3, "function": "sub_register"},
-}
-
-data_processing = {
-    "ANDS": {"doublon": False, "#imm": 0, "R": 2, "function": "and_bitwise"},
-    "EORS": {"doublon": False, "#imm": 0, "R": 2, "function": "eor"},
-    "LSLS": {"doublon": True, "#imm": 0, "R": 2, "function": "lsl_2_parameters"},
-    "LSRS": {"doublon": True, "#imm": 0, "R": 2, "function": "lsr_2_parameters"},
-    "ASRS": {"doublon": True, "#imm": 0, "R": 2, "function": "asr_2_parameters"},
-    "ADCS": {"doublon": False, "#imm": 0, "R": 2, "function": "adc"},
-    "SBCS": {"doublon": False, "#imm": 0, "R": 2, "function": "sbc"},
-    "RORS": {"doublon": False, "#imm": 0, "R": 2, "function": "ror"},
-    "TST": {"doublon": False, "#imm": 0, "R": 2, "function": "tst"},
-    "RSBS": {"doublon": False, "#imm": 0, "R": 2, "function": "rsb"},
-    "CMP": {"doublon": False, "#imm": 0, "R": 2, "function": "cmp"},
-    "CMN": {"doublon": False, "#imm": 0, "R": 2, "function": "cmn"},
-    "ORRS": {"doublon": False, "#imm": 0, "R": 2, "function": "orr"},
-    "MULS": {"doublon": False, "#imm": 0, "R": 3, "function": "mul"},
-    "BICS": {"doublon": False, "#imm": 0, "R": 2, "function": "bic"},
-    "MVNS": {"doublon": False, "#imm": 0, "R": 2, "function": "mvn"},
-}
-
-load_store = {
-    "STR": {"doublon": False, "#imm": 1, "R": 1, "function": "str_2_parameters"},
-    "LDR": {"doublon": False, "#imm": 1, "R": 1, "function": "ldr"},
-}
-
-miscellaneous_16_bits = {
-    "ADD": {"doublon": True, "#imm": 1, "R": 0, "function": "add_immediate_to_sp"},
-    "SUB": {"doublon": True, "#imm": 1, "R": 0, "function": "sub_immediate_to_sp"},
-}
-
-unconditional_branch = {
-    "B": {"doublon": False, "#imm": 0, "R": 0, "function": "b"},
-}
-
-conditional_branch = {
-    "BEQ": {"doublon": False, "#imm": 1, "R": 0, "function": "beq"},
-    "BNE": {"doublon": False, "#imm": 1, "R": 0, "function": "bne"},
-    "BCS": {"doublon": False, "#imm": 1, "R": 0, "function": "bcs"},
-    "BCC": {"doublon": False, "#imm": 1, "R": 0, "function": "bcc"},
-    "BMI": {"doublon": False, "#imm": 0, "R": 0, "function": "bmi"},
-    "BPL": {"doublon": False, "#imm": 1, "R": 0, "function": "bpl"},
-    "BVS": {"doublon": False, "#imm": 1, "R": 0, "function": "bvs"},
-    "BVC": {"doublon": False, "#imm": 1, "R": 0, "function": "bvc"},
-    "BHI": {"doublon": False, "#imm": 1, "R": 0, "function": "bhi"},
-    "BLS": {"doublon": False, "#imm": 1, "R": 0, "function": "bls"},
-    "BGE": {"doublon": False, "#imm": 1, "R": 0, "function": "bge"},
-    "BLT": {"doublon": False, "#imm": 1, "R": 0, "function": "blt"},
-    "BGT": {"doublon": False, "#imm": 1, "R": 0, "function": "bgt"},
-    "BLE": {"doublon": False, "#imm": 1, "R": 0, "function": "ble"},
-    "BAL": {"doublon": False, "#imm": 1, "R": 0, "function": "bal"},
-}
-
+def get_instruction_set():
+    # Read the json file locate at : src/main/resources/instructions_set.json
+    with open("../../../src/main/resources/instructions_set.json", 'r') as file:
+        return json.load(file)
 
 def filter_operands(instructions: list):
     """
@@ -212,6 +152,7 @@ def convert_into_binary(_function: Functions, instruction_set: list, line: list,
         for key, values in instruction.items():
             if line[0] == key and not values["doublon"]:
                 line = filter_operands(line)
+                print(line)
                 binaries = call_function(_function, line, instruction[key]["function"], line_number)
             elif line[0] == key and values["doublon"]:
                 # check to wich double instruction set the instruction belongs
@@ -223,6 +164,7 @@ def convert_into_binary(_function: Functions, instruction_set: list, line: list,
                 r, imm = number_of_r_and_imm(temp)
                 # Check if the number of r and #imm correspond to the double instruction set
                 if r == values["R"] and imm == values["#imm"]:
+                    print(line)
                     binaries = call_function(_function, line, instruction[key]["function"], line_number)
     if binaries == "":
         print(f"Error: {line} is not a valid instruction")
@@ -434,9 +376,11 @@ def save_hexa_as_bin(path: str, hexa: list):
 
 
 def main():
-    # Example usage
-    instruction_sets = [shift_add_sub_mov, adds_subs, data_processing, load_store, miscellaneous_16_bits,
-                        unconditional_branch, conditional_branch]
+    instruction_sets = get_instruction_set()
+    # transform it to list of shift_add_sub_mov, adds_subs, data_processing, load_store, miscellaneous_16_bits,
+    # unconditional_branch, conditional_branch
+    instruction_sets = [instruction_sets[key] for key in instruction_sets]
+
     # Ask the name of the file
     file_names = ask_file_name()
 
