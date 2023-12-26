@@ -8,40 +8,40 @@ class TestFunctions(unittest.TestCase):
     def setUp(self):
         self.functions = Functions()
 
-    def test_lsl(self):
-        expression = ["lsl", "r1", "r2", "#3"]
-        result = self.functions.lsl(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+    def test_lsls_2_register(self):
+        expression = ["lsls", "r6", "r5"]
+        result = self.functions.lsl_2_parameters(expression)
+        expected = "0100000010101110"
         self.assertEqual(expected, result)
 
-    def test_lsr(self):
-        expression = ["lsr", "r1", "r2", "#3"]
-        result = self.functions.lsr(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+    def test_lsrs_2_register(self):
+        expression = ["lsrs", "r6", "r7"]
+        result = self.functions.lsr_2_parameters(expression)
+        expected = "0100000011111110"
         self.assertEqual(expected, result)
 
-    def test_asr(self):
-        expression = ["asr", "r1", "r2", "#3"]
+    def test_asrs(self):
+        expression = ["asrs", "r4", "r4", "#1"]
         result = self.functions.asr(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0001000001100100"
         self.assertEqual(expected, result)
 
-    def test_add_register(self):
+    def test_adds_register(self):
         expression = ["adds", "r3", "r0", "r2"]
         result = self.functions.add_register(expression)
         expected = "0001100010000011"
         self.assertEqual(expected, result)
 
-    def test_sub_register(self):
-        expression = ["sub", "r1", "r2", "r3"]
+    def test_subs_register(self):
+        expression = ["subs", "r4", "r3", "r2"]
         result = self.functions.sub_register(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0001101010011100"
         self.assertEqual(expected, result)
 
-    def test_add_3bit_intermediate(self):
-        expression = ["add", "r1", "r2", "#3"]
+    def test_adds_3bit_intermediate(self):
+        expression = ["adds", "r5", "r2", "#5"]
         result = self.functions.add_3bit_intermediate(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0001110101010101"
         self.assertEqual(expected, result)
 
     def test_sub_3bit_intermediate(self):
@@ -50,82 +50,76 @@ class TestFunctions(unittest.TestCase):
         expected = "0001111101000110"
         self.assertEqual(expected, result)
 
-    def test_mov_r0_0(self):
+    def test_movs_r0_0(self):
         expression = ["movs", "r0", "#0"]
         result = self.functions.mov(expression)
         expected = "0010000000000000"
         self.assertEqual(expected, result)
 
-    def test_mov_r1_1(self):
+    def test_movs_r1_1(self):
         expression = ["movs", "r1", "#1"]
         result = self.functions.mov(expression)
         expected = "0010000100000001"
         self.assertEqual(expected, result)
 
-    def test_mov_r2_20(self):
+    def test_movs_r2_20(self):
         expression = ["movs", "r2", "#20"]
         result = self.functions.mov(expression)
         expected = "0010001000010100"
         self.assertEqual(expected, result)
 
-    def test_and_bitwise(self):
-        expression = ["and", "r1", "r2"]
+    def test_movs_r2_255(self):
+        expression = ["movs", "r2", "#255"]
+        result = self.functions.mov(expression)
+        expected = "0010001011111111"
+        self.assertEqual(expected, result)
+
+    def test_ands_bitwise(self):
+        expression = ["ands", "r3", "r1"]
         result = self.functions.and_bitwise(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100000000001011"
         self.assertEqual(expected, result)
 
-    def test_eor(self):
-        expression = ["eor", "r1", "r2"]
+    def test_eors(self):
+        expression = ["eors", "r4", "r1"]
         result = self.functions.eor(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100000001001100"
         self.assertEqual(expected, result)
 
-    def test_lsl_2_parameters(self):
-        expression = ["lsl", "r1", "r2"]
-        result = self.functions.lsl_2_parameters(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_lsr_2_parameters(self):
-        expression = ["lsr", "r1", "r2"]
-        result = self.functions.lsr_2_parameters(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_asr_2_parameters(self):
-        expression = ["asr", "r1", "r2"]
+    def test_asrs_2_parameters(self):
+        expression = ["asrs", "r1", "r2"]
         result = self.functions.asr_2_parameters(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100000100010001"
         self.assertEqual(expected, result)
 
-    def test_adc(self):
-        expression = ["adc", "r1", "r2"]
+    def test_adcs(self):
+        expression = ["adcs", "r5", "r1"]
         result = self.functions.adc(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100000101001101"
         self.assertEqual(expected, result)
 
-    def test_sbc(self):
-        expression = ["sbc", "r1", "r2"]
+    def test_sbcs_1(self):
+        expression = ["sbcs", "r5", "r1"]
         result = self.functions.sbc(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100000110001101"
         self.assertEqual(expected, result)
 
-    def test_ror(self):
-        expression = ["ror", "r1", "r2"]
+    def test_rors(self):
+        expression = ["ror", "r6", "r1"]
         result = self.functions.ror(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100000111001110"
         self.assertEqual(expected, result)
 
     def test_tst(self):
-        expression = ["tst", "r1", "r2"]
+        expression = ["tst", "r2", "r6"]
         result = self.functions.tst(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100001000110010"
         self.assertEqual(expected, result)
 
-    def test_rsb(self):
-        expression = ["rsb", "r1", "r2"]
+    def test_rsbs(self):
+        expression = ["rsbs", "r4", "r4", '#0']
         result = self.functions.rsb(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100001001100100"
         self.assertEqual(expected, result)
 
     def test_cmp_r0_r1(self):
@@ -134,34 +128,40 @@ class TestFunctions(unittest.TestCase):
         expected = "0100001010001000"
         self.assertEqual(expected, result)
 
-    def test_cmn(self):
-        expression = ["cmn", "r1", "r2"]
+    def test_cmn_1(self):
+        expression = ["cmn", "r3", "r1"]
         result = self.functions.cmn(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100001011001011"
         self.assertEqual(expected, result)
 
-    def test_orr(self):
-        expression = ["orr", "r1", "r2"]
+    def test_cmn_2(self):
+        expression = ["cmn", "r2", "r1"]
+        result = self.functions.cmn(expression)
+        expected = "0100001011001010"
+        self.assertEqual(expected, result)
+
+    def test_orrs(self):
+        expression = ["orrs", "r4", "r2"]
         result = self.functions.orr(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100001100010100"
         self.assertEqual(expected, result)
 
-    def test_mul(self):
-        expression = ["mul", "r1", "r2"]
+    def test_muls(self):
+        expression = ["muls", "r5", "r2", "r5"]
         result = self.functions.mul(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100001101010101"
         self.assertEqual(expected, result)
 
-    def test_bic(self):
-        expression = ["bic", "r1", "r2"]
+    def test_bics(self):
+        expression = ["bics", "r6", "r2"]
         result = self.functions.bic(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100001110010110"
         self.assertEqual(expected, result)
 
-    def test_mvn(self):
-        expression = ["mvn", "r1", "r2"]
+    def test_mvns(self):
+        expression = ["mvns", "r7", "r2"]
         result = self.functions.mvn(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "0100001111010111"
         self.assertEqual(expected, result)
 
     def test_str_2_parameters(self):
@@ -183,9 +183,9 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(expected, result)
 
     def test_sub_immediate_to_sp(self):
-        expression = ["sub", "sp", "#3"]
+        expression = ["sub", "sp", "#508"]
         result = self.functions.sub_immediate_to_sp(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        expected = "1011000011111111"
         self.assertEqual(expected, result)
 
     def test_b_endif1(self):
@@ -212,28 +212,12 @@ class TestFunctions(unittest.TestCase):
         expected = "1110011111110100"
         self.assertEqual(expected, result)
 
-    def test_beq(self):
-        expression = ["beq", "#3"]
-        result = self.functions.beq(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
     def test_bne(self):
-        expression = ["bne", "#3"]
-        result = self.functions.bne(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bcs(self):
-        expression = ["bcs", "#3"]
-        result = self.functions.bcs(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bcc(self):
-        expression = ["bcc", "#3"]
-        result = self.functions.bcc(expression)
-        expected = "EXPECTED_BINARY_RESULT"
+        # define the label
+        self.functions.labels[".LBB0_5"] = 22
+        expression = ["bne", ".LBB0_5"]
+        result = self.functions.bne(expression, 15)
+        expected = "1101000100000100"
         self.assertEqual(expected, result)
 
     def test_bmi_then1(self):
@@ -244,66 +228,12 @@ class TestFunctions(unittest.TestCase):
         expected = "1101010011111111"
         self.assertEqual(expected, result)
 
-    def test_bpl(self):
-        expression = ["bpl", "#3"]
-        result = self.functions.bpl(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bvs(self):
-        expression = ["bvs", "#3"]
-        result = self.functions.bvs(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bvc(self):
-        expression = ["bvc", "#3"]
-        result = self.functions.bvc(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bhi(self):
-        expression = ["bhi", "#3"]
-        result = self.functions.bhi(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bls(self):
-        expression = ["bls", "#3"]
-        result = self.functions.bls(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bge(self):
-        expression = ["bge", "#3"]
-        result = self.functions.bge(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
     def test_blt_then2(self):
         # define the label
         self.functions.labels[".THEN2"] = 10
         expression = ["blt", ".then2"]
         result = self.functions.blt(expression, 8)
         expected = "1101101111111111"
-        self.assertEqual(expected, result)
-
-    def test_bgt(self):
-        expression = ["bgt", "#3"]
-        result = self.functions.bgt(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_ble(self):
-        expression = ["ble", "#3"]
-        result = self.functions.ble(expression)
-        expected = "EXPECTED_BINARY_RESULT"
-        self.assertEqual(expected, result)
-
-    def test_bal(self):
-        expression = ["bal", "#3"]
-        result = self.functions.bal(expression)
-        expected = "EXPECTED_BINARY_RESULT"
         self.assertEqual(expected, result)
 
 if __name__ == '__main__':
