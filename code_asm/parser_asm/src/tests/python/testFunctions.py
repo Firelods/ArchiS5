@@ -1,12 +1,14 @@
 import unittest
 
 from src.main.python.functions import Functions
+from src.main.python.logger import Logger
 
 
 class TestFunctions(unittest.TestCase):
 
     def setUp(self):
-        self.functions = Functions()
+        self.logger = Logger(False, False)
+        self.functions = Functions(self.logger)
 
     def test_lsls_2_register(self):
         expression = ["lsls", "r6", "r5"]

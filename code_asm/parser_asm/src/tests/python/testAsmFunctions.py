@@ -1,11 +1,14 @@
 import unittest
 
 from src.main.python.asm_instructions import AsmInstructions
+from src.main.python.logger import Logger
+
 
 class TestAsmInstructions(unittest.TestCase):
     
     def setUp(self):
-        self.functions = AsmInstructions()
+        self.logger = Logger(False, False)
+        self.functions = AsmInstructions(self.logger)
 
     def test_get_immediate(self):
         result = self.functions.get_immediate("3", 3)

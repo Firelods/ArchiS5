@@ -1,14 +1,17 @@
 from src.main.python.asm_instructions import AsmInstructions
+from src.main.python.logger import Logger
 
 
 class Functions:
 
-    def __init__(self):
+    def __init__(self, logger: Logger):
         self.number_of_labels = 0
         self.number_of_instructions_labels = 0
         self.labels = {}
         self.labels_source = {}
-        self.asm_instructions = AsmInstructions()
+        self.asm_instructions = AsmInstructions(logger)
+        self.logger = logger
+        self.class_name = type(self).__name__
 
     # Shift, add, sub, mov: LSL, LSR, ASR, ADD, SUB, ADD3, SUB3, MOV
 
@@ -417,20 +420,31 @@ class Functions:
         :return:
         """
         line = line.strip()
+        message = f"Define label {line}"
+        self.logger.log(self.class_name, self.define_label.__name__, message)
         if self.is_label(line):
             label = line[:-1]
             self.labels[label.upper()] = number_of_instructions_labels
+            message = f"Label {label} defined"
+            self.logger.log(self.class_name, self.define_label.__name__, message)
 
-    @staticmethod
-    def is_label(line: str):
+    def is_label(self, line: str):
         """
         Check if the line is a label
         :param line: string
         :return: boolean
         """
-        if line == "": return False
+        message = f"Check if {line} is a label"
+        self.logger.log(self.class_name, self.is_label.__name__, message)
+        if line == "":
+            self.logger.error(self.class_name, self.is_label.__name__, "The line is empty")
+            return False
         if line[0] == "." and line[-1] == ":":
+            message = f"{line} is a label"
+            self.logger.log(self.class_name, self.is_label.__name__, message)
             return True
+        message = f"{line} is not a label"
+        self.logger.log(self.class_name, self.is_label.__name__, message)
         return False
 
     def set_number_of_instructions_labels(self, number_of_instructions_labels):
@@ -439,6 +453,8 @@ class Functions:
         :param number_of_instructions_labels:
         :return:
         """
+        message = f"Set number of instructions labels to {number_of_instructions_labels}"
+        self.logger.log(self.class_name, self.set_number_of_instructions_labels.__name__, message)
         self.number_of_instructions_labels = number_of_instructions_labels
 
     def set_number_of_labels(self, nbr_of_labels):
@@ -447,4 +463,6 @@ class Functions:
         :param nbr_of_labels:
         :return:
         """
+        message = f"Set number of labels to {nbr_of_labels}"
+        self.logger.log(self.class_name, self.set_number_of_labels.__name__, message)
         self.number_of_labels = nbr_of_labels
