@@ -1,0 +1,280 @@
+{
+  "shift_add_sub_mov": {
+    "LSLS": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 2,
+      "function": "lsl"
+    },
+    "LSRS": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 2,
+      "function": "lsr"
+    },
+    "ASRS": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 2,
+      "function": "asr"
+    },
+    "ADDS": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 2,
+      "function": "add_3bit_intermediate"
+    },
+    "SUBS": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 2,
+      "function": "sub_3bit_intermediate"
+    },
+    "MOVS": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 1,
+      "function": "mov"
+    }
+  },
+  "adds_subs": {
+    "ADDS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 3,
+      "function": "add_register"
+    },
+    "SUBS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 3,
+      "function": "sub_register"
+    }
+  },
+  "data_processing": {
+    "ANDS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "and_bitwise"
+    },
+    "EORS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "eor"
+    },
+    "LSLS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 2,
+      "function": "lsl_2_parameters"
+    },
+    "LSRS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 2,
+      "function": "lsr_2_parameters"
+    },
+    "ASRS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 2,
+      "function": "asr_2_parameters"
+    },
+    "ADCS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "adc"
+    },
+    "SBCS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "sbc"
+    },
+    "RORS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "ror"
+    },
+    "TST": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "tst"
+    },
+    "RSBS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "rsb"
+    },
+    "CMP": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "cmp"
+    },
+    "CMN": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "cmn"
+    },
+    "ORRS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "orr"
+    },
+    "MULS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 3,
+      "function": "mul"
+    },
+    "BICS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "bic"
+    },
+    "MVNS": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 2,
+      "function": "mvn"
+    }
+  },
+  "load_store": {
+    "STR": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 1,
+      "function": "str_2_parameters"
+    },
+    "LDR": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 1,
+      "function": "ldr"
+    }
+  },
+  "miscellaneous_16_bits": {
+    "ADD": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 0,
+      "function": "add_immediate_to_sp"
+    },
+    "SUB": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 0,
+      "function": "sub_immediate_to_sp"
+    }
+  },
+  "unconditional_branch": {
+    "B": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 0,
+      "function": "b"
+    }
+  },
+  "conditional_branch": {
+    "BEQ": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "beq"
+    },
+    "BNE": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bne"
+    },
+    "BCS": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bcs"
+    },
+    "BCC": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bcc"
+    },
+    "BMI": {
+      "doublon": false,
+      "#imm": 0,
+      "R": 0,
+      "function": "bmi"
+    },
+    "BPL": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bpl"
+    },
+    "BVS": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bvs"
+    },
+    "BVC": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bvc"
+    },
+    "BHI": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bhi"
+    },
+    "BLS": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bls"
+    },
+    "BGE": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bge"
+    },
+    "BLT": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "blt"
+    },
+    "BGT": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bgt"
+    },
+    "BLE": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "ble"
+    },
+    "BAL": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bal"
+    }
+  }
+}
