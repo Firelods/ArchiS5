@@ -112,105 +112,105 @@ class TestFunctions(unittest.TestCase):
         expected = "0100000011111110"
         self.assertEqual(expected, result)
 
-    def test_asrs_2_parameters(self):
+    def test_asrs_Rdn_Rm(self):
         expression = ["asrs", "r1", "r2"]
-        result = self.functions.asr_2_parameters(expression)
+        result = self.functions.asrs_Rdn_Rm(expression)
         expected = "0100000100010001"
         self.assertEqual(expected, result)
 
-    def test_adcs(self):
+    def test_adcs_Rdn_Rm(self):
         expression = ["adcs", "r5", "r1"]
-        result = self.functions.adc(expression)
+        result = self.functions.adcs_Rdn_Rm(expression)
         expected = "0100000101001101"
         self.assertEqual(expected, result)
 
-    def test_sbcs_1(self):
+    def test_sbcs_Rdn_Rm(self):
         expression = ["sbcs", "r5", "r1"]
-        result = self.functions.sbc(expression)
+        result = self.functions.sbcs_Rdn_Rm(expression)
         expected = "0100000110001101"
         self.assertEqual(expected, result)
 
-    def test_rors(self):
+    def test_rors_Rdn_Rm(self):
         expression = ["ror", "r6", "r1"]
-        result = self.functions.ror(expression)
+        result = self.functions.rors_Rdn_Rm(expression)
         expected = "0100000111001110"
         self.assertEqual(expected, result)
 
-    def test_tst(self):
+    def test_tst_Rn_Rm(self):
         expression = ["tst", "r2", "r6"]
-        result = self.functions.tst(expression)
+        result = self.functions.tst_Rn_Rm(expression)
         expected = "0100001000110010"
         self.assertEqual(expected, result)
 
-    def test_rsbs(self):
+    def test_rsbs_Rd_Rn(self):
         expression = ["rsbs", "r4", "r4", '#0']
-        result = self.functions.rsb(expression)
+        result = self.functions.rsbs_Rd_Rn(expression)
         expected = "0100001001100100"
         self.assertEqual(expected, result)
 
-    def test_cmp_r0_r1(self):
+    def test_cmp_Rn_Rm(self):
         expression = ["cmp", "r0", "r1"]
-        result = self.functions.cmp_2_registers(expression)
+        result = self.functions.cmp_Rn_Rm(expression)
         expected = "0100001010001000"
         self.assertEqual(expected, result)
 
-    def test_cmn_1(self):
+    def test_cmn_Rn_Rm_1(self):
         expression = ["cmn", "r3", "r1"]
-        result = self.functions.cmn(expression)
+        result = self.functions.cmn_Rn_Rm(expression)
         expected = "0100001011001011"
         self.assertEqual(expected, result)
 
-    def test_cmn_2(self):
+    def test_cmn_Rn_Rm_2(self):
         expression = ["cmn", "r2", "r1"]
-        result = self.functions.cmn(expression)
+        result = self.functions.cmn_Rn_Rm(expression)
         expected = "0100001011001010"
         self.assertEqual(expected, result)
 
-    def test_orrs(self):
+    def test_orrs_Rdn_Rm(self):
         expression = ["orrs", "r4", "r2"]
-        result = self.functions.orr(expression)
+        result = self.functions.orrs_Rdn_Rm(expression)
         expected = "0100001100010100"
         self.assertEqual(expected, result)
 
-    def test_muls(self):
+    def test_muls_Rdm_Rn_Rdm(self):
         expression = ["muls", "r5", "r2", "r5"]
-        result = self.functions.mul(expression)
+        result = self.functions.muls_Rdm_Rn_Rdm(expression)
         expected = "0100001101010101"
         self.assertEqual(expected, result)
 
-    def test_bics(self):
+    def test_bics_Rdn_Rm(self):
         expression = ["bics", "r6", "r2"]
-        result = self.functions.bic(expression)
+        result = self.functions.bics_Rdn_Rm(expression)
         expected = "0100001110010110"
         self.assertEqual(expected, result)
 
-    def test_mvns(self):
+    def test_mvns_Rd_Rm(self):
         expression = ["mvns", "r7", "r2"]
-        result = self.functions.mvn(expression)
+        result = self.functions.mvns_Rd_Rm(expression)
         expected = "0100001111010111"
         self.assertEqual(expected, result)
 
-    def test_str_2_parameters(self):
+    def test_str_Rt_imm8(self):
         expression = ["str", "r1", "#0"]
-        result = self.functions.str_2_parameters(expression)
+        result = self.functions.str_Rt_imm8(expression)
         expected = "1001000100000000"
         self.assertEqual(expected, result)
 
-    def test_ldr(self):
+    def test_ldr_Rt_imm8(self):
         expression = ["ldr", "r2", "#4"]
-        result = self.functions.ldr(expression)
+        result = self.functions.ldr_Rt_imm8(expression)
         expected = "1001101000000001"
         self.assertEqual(expected, result)
 
-    def test_add_immediate_to_sp(self):
+    def test_add_imm7(self):
         expression = ["add", "sp,", "#16"]
-        result = self.functions.add_immediate_to_sp(expression)
+        result = self.functions.add_imm7(expression)
         expected = "1011000000000100"
         self.assertEqual(expected, result)
 
-    def test_sub_immediate_to_sp(self):
+    def test_sub_imm7(self):
         expression = ["sub", "sp", "#508"]
-        result = self.functions.sub_immediate_to_sp(expression)
+        result = self.functions.sub_imm7(expression)
         expected = "1011000011111111"
         self.assertEqual(expected, result)
 

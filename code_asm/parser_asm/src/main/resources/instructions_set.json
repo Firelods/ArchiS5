@@ -102,73 +102,73 @@
       "doublon": true,
       "#imm": 0,
       "R": 2,
-      "function": "asr_2_parameters"
+      "function": "asrs_Rdn_Rm"
     },
     "ADCS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "adc"
+      "function": "adcs_Rdn_Rm"
     },
     "SBCS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "sbc"
+      "function": "sbcs_Rdn_Rm"
     },
     "RORS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "ror"
+      "function": "rors_Rdn_Rm"
     },
     "TST": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "tst"
+      "function": "tst_Rn_Rm"
     },
     "RSBS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "rsb"
+      "function": "rsbs_Rd_Rn"
     },
     "CMP": {
       "doublon": true,
       "#imm": 0,
       "R": 2,
-      "function": "cmp_2_registers"
+      "function": "cmp_Rn_Rm"
     },
     "CMN": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "cmn"
+      "function": "cmn_Rn_Rm"
     },
     "ORRS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "orr"
+      "function": "orrs_Rdn_Rm"
     },
     "MULS": {
       "doublon": false,
       "#imm": 0,
       "R": 3,
-      "function": "mul"
+      "function": "muls_Rdm_Rn_Rdm"
     },
     "BICS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "bic"
+      "function": "bics_Rdn_Rm"
     },
     "MVNS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "mvn"
+      "function": "mvns_Rd_Rm"
     }
   },
   "load_store": {
@@ -176,13 +176,13 @@
       "doublon": false,
       "#imm": 1,
       "R": 1,
-      "function": "str_2_parameters"
+      "function": "str_Rt_imm8"
     },
     "LDR": {
       "doublon": false,
       "#imm": 1,
       "R": 1,
-      "function": "ldr"
+      "function": "ldr_Rt_imm8"
     }
   },
   "miscellaneous_16_bits": {
@@ -190,13 +190,13 @@
       "doublon": true,
       "#imm": 1,
       "R": 0,
-      "function": "add_immediate_to_sp"
+      "function": "add_imm7"
     },
     "SUB": {
       "doublon": true,
       "#imm": 1,
       "R": 0,
-      "function": "sub_immediate_to_sp"
+      "function": "sub_imm7"
     }
   },
   "unconditional_branch": {
