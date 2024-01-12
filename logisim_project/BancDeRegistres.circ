@@ -8,6 +8,15 @@
       <a name="fanout" val="4"/>
       <a name="incoming" val="1"/>
     </tool>
+    <tool name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="Probe">
+      <a name="appearance" val="classic"/>
+      <a name="facing" val="west"/>
+      <a name="radix" val="10unsigned"/>
+    </tool>
     <tool name="Tunnel">
       <a name="facing" val="south"/>
     </tool>
@@ -1381,7 +1390,7 @@
     </comp>
     <comp lib="0" loc="(570,230)" name="Tunnel">
       <a name="facing" val="north"/>
-      <a name="label" val="R6"/>
+      <a name="label" val="R7"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(580,460)" name="Tunnel">
@@ -1525,7 +1534,7 @@
     </comp>
     <comp lib="0" loc="(790,230)" name="Tunnel">
       <a name="facing" val="north"/>
-      <a name="label" val="R6"/>
+      <a name="label" val="R7"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(810,1050)" name="Pin">
