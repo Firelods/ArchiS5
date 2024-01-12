@@ -138,7 +138,7 @@ class Functions:
         # example of expression : ["lsr", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "0011")
 
-    def asr_2_parameters(self, expression: list):
+    def asrs_Rdn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -146,7 +146,7 @@ class Functions:
         # example of expression : ["asr", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "0100")
 
-    def adc(self, expression: list):
+    def adcs_Rdn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -154,7 +154,7 @@ class Functions:
         # example of expression : ["adc", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "0101")
 
-    def sbc(self, expression: list):
+    def sbcs_Rdn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -162,7 +162,7 @@ class Functions:
         # example of expression : ["sbc", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "0110")
 
-    def ror(self, expression: list):
+    def rors_Rdn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -170,7 +170,7 @@ class Functions:
         # example of expression : ["ror", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "0111")
 
-    def tst(self, expression: list):
+    def tst_Rn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -178,7 +178,7 @@ class Functions:
         # example of expression : ["tst", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1000")
 
-    def rsb(self, expression: list):
+    def rsbs_Rd_Rn(self, expression: list):
         """
         :param expression:
         :return:
@@ -186,7 +186,7 @@ class Functions:
         # example of expression : ["rsb", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1001")
 
-    def cmp_2_registers(self, expression: list):
+    def cmp_Rn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -194,7 +194,7 @@ class Functions:
         # example of expression : ["cmp", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1010")
 
-    def cmn(self, expression: list):
+    def cmn_Rn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -202,7 +202,7 @@ class Functions:
         # example of expression : ["cmn", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1011")
 
-    def orr(self, expression: list):
+    def orrs_Rdn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -210,7 +210,7 @@ class Functions:
         # example of expression : ["orr", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1100")
 
-    def mul(self, expression: list):
+    def muls_Rdm_Rn_Rdm(self, expression: list):
         """
         :param expression:
         :return:
@@ -218,7 +218,7 @@ class Functions:
         # example of expression : ["mul", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1101")
 
-    def bic(self, expression: list):
+    def bics_Rdn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -226,7 +226,7 @@ class Functions:
         # example of expression : ["bic", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1110")
 
-    def mvn(self, expression: list):
+    def mvns_Rd_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -236,7 +236,7 @@ class Functions:
 
     # Load / Store: STR, LDR
 
-    def str_2_parameters(self, expression: list):
+    def str_Rt_imm8(self, expression: list):
         """
         :param expression:
         :return:
@@ -244,7 +244,7 @@ class Functions:
         # example of expression : ["str", "r1", "#3"]
         return self.asm_instructions.instruction_rt_imm8(expression, "0")
 
-    def ldr(self, expression: list):
+    def ldr_Rt_imm8(self, expression: list):
         """
         :param expression:
         :return:
@@ -254,7 +254,7 @@ class Functions:
 
     # Miscellaneous 16-bit instructions: ADD, SUB
 
-    def add_immediate_to_sp(self, expression: list):
+    def add_imm7(self, expression: list):
         """
         :param expression:
         :return:
@@ -262,7 +262,7 @@ class Functions:
         # example of expression : ["add", "sp", "#3"]
         return self.asm_instructions.instruction_sp_imm7(expression, "00000")
 
-    def sub_immediate_to_sp(self, expression: list):
+    def sub_imm7(self, expression: list):
         """
         :param expression:
         :return:
