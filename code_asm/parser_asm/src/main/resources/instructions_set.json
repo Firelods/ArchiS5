@@ -1,54 +1,76 @@
 {
-  "shift_add_sub_mov": {
+  "operation_registre": {
     "LSLS": {
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "lsl"
+      "function": "lsls"
     },
     "LSRS": {
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "lsr"
+      "function": "lsrs"
     },
     "ASRS": {
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "asr"
+      "function": "asrs_Rd_Rm_imm5"
+    }
+  },
+  "operation_arithmetique_1": {
+    "ADDS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 3,
+      "function": "adds_Rd_Rn_Rm"
     },
+    "SUBS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 3,
+      "function": "subs_register"
+    }
+  },
+  "operation_arithmetique_2": {
     "ADDS": {
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "add_3bit_intermediate"
+      "function": "adds_3bit_intermediate"
     },
     "SUBS": {
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "sub_3bit_intermediate"
+      "function": "subs_3bit_intermediate"
     },
     "MOVS": {
       "doublon": false,
       "#imm": 1,
       "R": 1,
-      "function": "mov"
+      "function": "movs"
+    },
+    "CMP": {
+      "doublon": true,
+      "#imm": 1,
+      "R": 1,
+      "function": "cmp_rd_imm8"
     }
   },
-  "adds_subs": {
+  "operation_arithmetique_3": {
     "ADDS": {
       "doublon": true,
-      "#imm": 0,
-      "R": 3,
-      "function": "add_register"
+      "#imm": 1,
+      "R": 1,
+      "function": "adds_8bit_immediate"
     },
     "SUBS": {
       "doublon": true,
-      "#imm": 0,
-      "R": 3,
-      "function": "sub_register"
+      "#imm": 1,
+      "R": 1,
+      "function": "subs_8bit_immediate"
     }
   },
   "data_processing": {
@@ -68,13 +90,13 @@
       "doublon": true,
       "#imm": 0,
       "R": 2,
-      "function": "lsl_2_parameters"
+      "function": "lsls_Rd_Rm_imm5"
     },
     "LSRS": {
       "doublon": true,
       "#imm": 0,
       "R": 2,
-      "function": "lsr_2_parameters"
+      "function": "lsrs_Rd_Rm_imm5"
     },
     "ASRS": {
       "doublon": true,
@@ -113,10 +135,10 @@
       "function": "rsb"
     },
     "CMP": {
-      "doublon": false,
+      "doublon": true,
       "#imm": 0,
       "R": 2,
-      "function": "cmp"
+      "function": "cmp_2_registers"
     },
     "CMN": {
       "doublon": false,
@@ -202,13 +224,25 @@
       "doublon": false,
       "#imm": 1,
       "R": 0,
-      "function": "bcs"
+      "function": "bcs_bhs"
+    },
+    "BHS": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bcs_bhs"
     },
     "BCC": {
       "doublon": false,
       "#imm": 1,
       "R": 0,
       "function": "bcc"
+    },
+    "BLO": {
+      "doublon": false,
+      "#imm": 1,
+      "R": 0,
+      "function": "bcc_blo"
     },
     "BMI": {
       "doublon": false,

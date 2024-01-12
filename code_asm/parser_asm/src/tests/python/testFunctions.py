@@ -12,67 +12,67 @@ class TestFunctions(unittest.TestCase):
 
     def test_lsls_2_register(self):
         expression = ["lsls", "r6", "r5"]
-        result = self.functions.lsl_2_parameters(expression)
+        result = self.functions.lsls_Rd_Rm_imm5(expression)
         expected = "0100000010101110"
         self.assertEqual(expected, result)
 
     def test_lsrs_2_register(self):
         expression = ["lsrs", "r6", "r7"]
-        result = self.functions.lsr_2_parameters(expression)
+        result = self.functions.lsrs_Rd_Rm_imm5(expression)
         expected = "0100000011111110"
         self.assertEqual(expected, result)
 
-    def test_asrs(self):
+    def test_asrs_Rd_Rm_imm5(self):
         expression = ["asrs", "r4", "r4", "#1"]
-        result = self.functions.asr(expression)
+        result = self.functions.asrs_Rd_Rm_imm5(expression)
         expected = "0001000001100100"
         self.assertEqual(expected, result)
 
-    def test_adds_register(self):
+    def test_adds_Rd_Rn_Rm(self):
         expression = ["adds", "r3", "r0", "r2"]
-        result = self.functions.add_register(expression)
+        result = self.functions.adds_Rd_Rn_Rm(expression)
         expected = "0001100010000011"
         self.assertEqual(expected, result)
 
     def test_subs_register(self):
         expression = ["subs", "r4", "r3", "r2"]
-        result = self.functions.sub_register(expression)
+        result = self.functions.subs_register(expression)
         expected = "0001101010011100"
         self.assertEqual(expected, result)
 
     def test_adds_3bit_intermediate(self):
         expression = ["adds", "r5", "r2", "#5"]
-        result = self.functions.add_3bit_intermediate(expression)
+        result = self.functions.adds_3bit_intermediate(expression)
         expected = "0001110101010101"
         self.assertEqual(expected, result)
 
-    def test_sub_3bit_intermediate(self):
+    def test_subs_3bit_intermediate(self):
         expression = ["sub", "r6", "r0", "#5"]
-        result = self.functions.sub_3bit_intermediate(expression)
+        result = self.functions.subs_3bit_intermediate(expression)
         expected = "0001111101000110"
         self.assertEqual(expected, result)
 
     def test_movs_r0_0(self):
         expression = ["movs", "r0", "#0"]
-        result = self.functions.mov(expression)
+        result = self.functions.movs(expression)
         expected = "0010000000000000"
         self.assertEqual(expected, result)
 
     def test_movs_r1_1(self):
         expression = ["movs", "r1", "#1"]
-        result = self.functions.mov(expression)
+        result = self.functions.movs(expression)
         expected = "0010000100000001"
         self.assertEqual(expected, result)
 
     def test_movs_r2_20(self):
         expression = ["movs", "r2", "#20"]
-        result = self.functions.mov(expression)
+        result = self.functions.movs(expression)
         expected = "0010001000010100"
         self.assertEqual(expected, result)
 
     def test_movs_r2_255(self):
         expression = ["movs", "r2", "#255"]
-        result = self.functions.mov(expression)
+        result = self.functions.movs(expression)
         expected = "0010001011111111"
         self.assertEqual(expected, result)
 
@@ -126,7 +126,7 @@ class TestFunctions(unittest.TestCase):
 
     def test_cmp_r0_r1(self):
         expression = ["cmp", "r0", "r1"]
-        result = self.functions.cmp(expression)
+        result = self.functions.cmp_2_registers(expression)
         expected = "0100001010001000"
         self.assertEqual(expected, result)
 

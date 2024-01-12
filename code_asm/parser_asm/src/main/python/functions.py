@@ -15,7 +15,7 @@ class Functions:
 
     # Shift, add, sub, mov: LSL, LSR, ASR, ADD, SUB, ADD3, SUB3, MOV
 
-    def lsl(self, expression: list):
+    def lsls(self, expression: list):
         """
         :param expression: list
         :return: 16 bits
@@ -23,7 +23,7 @@ class Functions:
         # example of expression : ["lsl", "r1", "r2", "#3"]
         return self.asm_instructions.instruction_imm5_rd_rm(expression, "000")
 
-    def lsr(self, expression: list):
+    def lsrs(self, expression: list):
         """
         :param expression: list
         :return: 16 bits
@@ -31,7 +31,7 @@ class Functions:
         # example of expression : ["lsr", "r1", "r2", "#3"]
         return self.asm_instructions.instruction_imm5_rd_rm(expression, "001")
 
-    def asr(self, expression: list):
+    def asrs_Rd_Rm_imm5(self, expression: list):
         """
         :param expression: list
         :return: 16 bits
@@ -39,7 +39,7 @@ class Functions:
         # example of expression : ["asr", "r1", "r2", "#3"]
         return self.asm_instructions.instruction_imm5_rd_rm(expression, "010")
 
-    def add_register(self, expression: list):
+    def adds_Rd_Rn_Rm(self, expression: list):
         """
         :param expression:
         :return:
@@ -47,7 +47,7 @@ class Functions:
         # example of expression : ["add", "r1", "r2", "r3"]
         return self.asm_instructions.instruction_rm_rd_rn(expression, "01100")
 
-    def sub_register(self, expression: list):
+    def subs_register(self, expression: list):
         """
         :param expression:
         :return:
@@ -55,7 +55,7 @@ class Functions:
         # example of expression : ["sub", "r1", "r2", "r3"]
         return self.asm_instructions.instruction_rm_rd_rn(expression, "01101")
 
-    def add_3bit_intermediate(self, expression: list):
+    def adds_3bit_intermediate(self, expression: list):
         """
         :param expression:
         :return:
@@ -63,7 +63,7 @@ class Functions:
         # example of expression : ["add", "r1", "r2", "#3"]
         return self.asm_instructions.instruction_imm3_rd_rn(expression, "01110")
 
-    def sub_3bit_intermediate(self, expression: list):
+    def subs_3bit_intermediate(self, expression: list):
         """
         :param expression:
         :return:
@@ -71,13 +71,38 @@ class Functions:
         # example of expression : ["sub", "r1", "r2", "#3"]
         return self.asm_instructions.instruction_imm3_rd_rn(expression, "01111")
 
-    def mov(self, expression: list):
+    def movs(self, expression: list):
         """
         :param expression:
         :return:
         """
-        # example of expression : ["mov", "r1", "#3"]
+        # example of expression : ["movs", "r1", "#3"]
         return self.asm_instructions.instruction_rd_imm8(expression, "100")
+
+    def cmp_rd_imm8(self, expression: list):
+        """
+        :param expression:
+        :return:
+        """
+        # example of expression : ["cmp", "r1", "#8"]
+        return self.asm_instructions.instruction_rd_imm8(expression, "101")
+
+    def adds_8bit_immediate(self, expression: list):
+        """
+        :param expression:
+        :return:
+        """
+        # example of expression : ["adds", "r1", "#8"]
+        return self.asm_instructions.instruction_rd_imm8(expression, "110")
+
+    def subs_8bit_immediate(self, expression: list):
+        """
+        :param expression:
+        :return:
+        """
+        # example of expression : ["subs", "r1", "#8"]
+        return self.asm_instructions.instruction_rd_imm8(expression, "111")
+
 
     # Data processing : AND, EOR, LSL, LSR, ASR, ADC, SBC, ROR, TST, RSB, CMP, CNN, ORR, MUL, BIC, MVN
 
@@ -97,7 +122,7 @@ class Functions:
         # example of expression : ["eor", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "0001")
 
-    def lsl_2_parameters(self, expression: list):
+    def lsls_Rd_Rm_imm5(self, expression: list):
         """
         :param expression:
         :return:
@@ -105,7 +130,7 @@ class Functions:
         # example of expression : ["lsl", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "0010")
 
-    def lsr_2_parameters(self, expression: list):
+    def lsrs_Rd_Rm_imm5(self, expression: list):
         """
         :param expression:
         :return:
@@ -161,7 +186,7 @@ class Functions:
         # example of expression : ["rsb", "r1", "r2"]
         return self.asm_instructions.instruction_rm_rdn(expression, "1001")
 
-    def cmp(self, expression: list):
+    def cmp_2_registers(self, expression: list):
         """
         :param expression:
         :return:
