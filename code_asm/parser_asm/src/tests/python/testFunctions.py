@@ -10,16 +10,16 @@ class TestFunctions(unittest.TestCase):
         self.logger = Logger(False, False)
         self.functions = Functions(self.logger)
 
-    def test_lsls_2_register(self):
-        expression = ["lsls", "r6", "r5"]
+    def test_lsls_Rd_Rm_imm5(self):
+        expression = ["lsls", "r1", "r1", "#1"]
         result = self.functions.lsls_Rd_Rm_imm5(expression)
-        expected = "0100000010101110"
+        expected = "0000000001001001"
         self.assertEqual(expected, result)
 
-    def test_lsrs_2_register(self):
-        expression = ["lsrs", "r6", "r7"]
+    def test_lsrs_Rd_Rm_imm5(self):
+        expression = ["lsrs", "r2", "r2", "#1"]
         result = self.functions.lsrs_Rd_Rm_imm5(expression)
-        expected = "0100000011111110"
+        expected = "0000100001010010"
         self.assertEqual(expected, result)
 
     def test_asrs_Rd_Rm_imm5(self):
@@ -34,58 +34,82 @@ class TestFunctions(unittest.TestCase):
         expected = "0001100010000011"
         self.assertEqual(expected, result)
 
-    def test_subs_register(self):
+    def test_subs_Rd_Rn_Rm(self):
         expression = ["subs", "r4", "r3", "r2"]
-        result = self.functions.subs_register(expression)
+        result = self.functions.subs_Rd_Rn_Rm(expression)
         expected = "0001101010011100"
         self.assertEqual(expected, result)
 
-    def test_adds_3bit_intermediate(self):
+    def test_adds_Rd_Rn_imm3(self):
         expression = ["adds", "r5", "r2", "#5"]
-        result = self.functions.adds_3bit_intermediate(expression)
+        result = self.functions.adds_Rd_Rn_imm3(expression)
         expected = "0001110101010101"
         self.assertEqual(expected, result)
 
-    def test_subs_3bit_intermediate(self):
+    def test_subs_Rd_Rn_imm3(self):
         expression = ["sub", "r6", "r0", "#5"]
-        result = self.functions.subs_3bit_intermediate(expression)
+        result = self.functions.subs_Rd_Rn_imm3(expression)
         expected = "0001111101000110"
         self.assertEqual(expected, result)
 
     def test_movs_r0_0(self):
         expression = ["movs", "r0", "#0"]
-        result = self.functions.movs(expression)
+        result = self.functions.movs_Rd_imm8(expression)
         expected = "0010000000000000"
         self.assertEqual(expected, result)
 
     def test_movs_r1_1(self):
         expression = ["movs", "r1", "#1"]
-        result = self.functions.movs(expression)
+        result = self.functions.movs_Rd_imm8(expression)
         expected = "0010000100000001"
         self.assertEqual(expected, result)
 
     def test_movs_r2_20(self):
         expression = ["movs", "r2", "#20"]
-        result = self.functions.movs(expression)
+        result = self.functions.movs_Rd_imm8(expression)
         expected = "0010001000010100"
         self.assertEqual(expected, result)
 
     def test_movs_r2_255(self):
         expression = ["movs", "r2", "#255"]
-        result = self.functions.movs(expression)
+        result = self.functions.movs_Rd_imm8(expression)
         expected = "0010001011111111"
         self.assertEqual(expected, result)
 
-    def test_ands_bitwise(self):
+    def test_cmp_Rd_imm8(self):
+        expression = ["cmp", "r0", "#1"]
+        result = self.functions.cmp_Rd_imm8(expression)
+        expected = "0010100000000001"
+        self.assertEqual(expected, result)
+
+    def test_adds_Rd_imm8(self):
+        expression = ["adds", "r0", "#1"]
+        result = self.functions.adds_Rd_imm8(expression)
+        expected = "0011000000000001"
+        self.assertEqual(expected, result)
+
+    def test_ands_Rdn_Rm(self):
         expression = ["ands", "r3", "r1"]
-        result = self.functions.and_bitwise(expression)
+        result = self.functions.ands_Rdn_Rm(expression)
         expected = "0100000000001011"
         self.assertEqual(expected, result)
 
-    def test_eors(self):
+    def test_eors_Rdn_Rm(self):
         expression = ["eors", "r4", "r1"]
-        result = self.functions.eor(expression)
+        result = self.functions.eors_Rdn_Rm(expression)
         expected = "0100000001001100"
+        self.assertEqual(expected, result)
+
+    def test_lsls_Rdn_Rm(self):
+        expression = ["lsls", "r6", "r5"]
+        result = self.functions.lsls_Rdn_Rm(expression)
+        expected = "0100000010101110"
+        self.assertEqual(expected, result)
+
+    def test_lsrs_Rdn_Rm(self):
+        expression = ["lsrs", "r6", "r7"]
+        result = self.functions.lsrs_Rdn_Rm(expression)
+        expected = "0100000011111110"
         self.assertEqual(expected, result)
 
     def test_asrs_2_parameters(self):

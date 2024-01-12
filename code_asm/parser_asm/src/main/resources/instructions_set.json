@@ -4,13 +4,13 @@
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "lsls"
+      "function": "lsls_Rd_Rm_imm5"
     },
     "LSRS": {
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "lsrs"
+      "function": "lsrs_Rd_Rm_imm5"
     },
     "ASRS": {
       "doublon": true,
@@ -30,7 +30,7 @@
       "doublon": true,
       "#imm": 0,
       "R": 3,
-      "function": "subs_register"
+      "function": "subs_Rd_Rn_Rm"
     }
   },
   "operation_arithmetique_2": {
@@ -38,25 +38,25 @@
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "adds_3bit_intermediate"
+      "function": "adds_Rd_Rn_imm3"
     },
     "SUBS": {
       "doublon": true,
       "#imm": 1,
       "R": 2,
-      "function": "subs_3bit_intermediate"
+      "function": "subs_Rd_Rn_imm3"
     },
     "MOVS": {
       "doublon": false,
       "#imm": 1,
       "R": 1,
-      "function": "movs"
+      "function": "movs_Rd_imm8"
     },
     "CMP": {
       "doublon": true,
       "#imm": 1,
       "R": 1,
-      "function": "cmp_rd_imm8"
+      "function": "cmp_Rd_imm8"
     }
   },
   "operation_arithmetique_3": {
@@ -64,7 +64,7 @@
       "doublon": true,
       "#imm": 1,
       "R": 1,
-      "function": "adds_8bit_immediate"
+      "function": "adds_Rd_imm8"
     },
     "SUBS": {
       "doublon": true,
@@ -78,25 +78,25 @@
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "and_bitwise"
+      "function": "ands_Rdn_Rm"
     },
     "EORS": {
       "doublon": false,
       "#imm": 0,
       "R": 2,
-      "function": "eor"
+      "function": "eors_Rdn_Rm"
     },
     "LSLS": {
       "doublon": true,
       "#imm": 0,
       "R": 2,
-      "function": "lsls_Rd_Rm_imm5"
+      "function": "lsls_Rdn_Rm"
     },
     "LSRS": {
       "doublon": true,
       "#imm": 0,
       "R": 2,
-      "function": "lsrs_Rd_Rm_imm5"
+      "function": "lsrs_Rdn_Rm"
     },
     "ASRS": {
       "doublon": true,
