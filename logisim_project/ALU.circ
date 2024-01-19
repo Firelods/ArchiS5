@@ -502,7 +502,7 @@
     <comp lib="0" loc="(360,1920)" name="Tunnel">
       <a name="label" val="NotBoutWithoutCin"/>
     </comp>
-    <comp lib="0" loc="(380,1410)" name="Tunnel">
+    <comp lib="0" loc="(410,1410)" name="Tunnel">
       <a name="label" val="BmoinsAplusCinMoins1"/>
       <a name="width" val="32"/>
     </comp>
@@ -1071,7 +1071,7 @@
     <wire from="(280,1920)" to="(300,1920)"/>
     <wire from="(280,2200)" to="(340,2200)"/>
     <wire from="(290,1230)" to="(330,1230)"/>
-    <wire from="(290,1410)" to="(380,1410)"/>
+    <wire from="(290,1410)" to="(410,1410)"/>
     <wire from="(290,1520)" to="(330,1520)"/>
     <wire from="(290,1980)" to="(330,1980)"/>
     <wire from="(290,2100)" to="(330,2100)"/>
