@@ -298,8 +298,7 @@ end TCL_Generic;
       <a name="label" val="Enable"/>
     </comp>
     <comp lib="0" loc="(270,640)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="Enable"/>
+      <a name="label" val="Codop"/>
     </comp>
     <comp lib="0" loc="(310,590)" name="Tunnel">
       <a name="label" val="New_Stack_Pointer"/>
