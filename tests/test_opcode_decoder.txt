@@ -29,4 +29,3 @@ Opcode[6] Shift[1] Data_Processing[1] Load_Store[1] SP_Address[1] Conditional[1]
 110101 0 0 0 0 1
 110110 0 0 0 0 1
 110111 0 0 0 0 1
-111111 1 1 1 1 1
