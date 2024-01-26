@@ -1,6 +1,6 @@
 import os
 
-from src.main.python.bcolors import bcolors
+from bcolors import bcolors
 
 
 class Logger:

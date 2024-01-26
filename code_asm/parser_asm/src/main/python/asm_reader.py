@@ -1,4 +1,4 @@
-from src.main.python.logger import Logger
+from logger import Logger
 
 
 class AsmReader:
@@ -45,10 +45,13 @@ class AsmReader:
         path = path.replace("asm_files", "expected_binaries").replace(".s", ".bin")
         message = f"Reading {path}"
         self.logger.log(self.class_name, self.read_bin_file.__name__, message)
-        with open(path, 'r') as file:
-            for line in file.readlines():
-                # skip the first line
-                if line == "v2.0 raw\n":
-                    continue
-                bin_list = line.split()
+        try:
+            with open(path, 'r') as file:
+                for line in file.readlines():
+                    # skip the first line
+                    if line == "v2.0 raw\n":
+                        continue
+                    bin_list = line.split()
+        except FileNotFoundError:
+            bin_list = None
         return bin_list

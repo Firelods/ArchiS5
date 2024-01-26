@@ -1,4 +1,4 @@
-from src.main.python.logger import Logger
+from logger import Logger
 
 
 class AsmInstructions:
@@ -149,6 +149,8 @@ class AsmInstructions:
         :param register: string
         :return: string
         """
+        # Set the register to lower case
+        register = register.lower()
         message = f"Get register number from {register}"
         # if there is a comma at the end of the register, remove it
         if register[-1] == ",":

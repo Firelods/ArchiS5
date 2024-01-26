@@ -1,6 +1,6 @@
 import os
 
-from src.main.python.logger import Logger
+from logger import Logger
 
 
 class FilesFounder:

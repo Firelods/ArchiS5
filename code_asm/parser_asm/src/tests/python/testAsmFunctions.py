@@ -1,7 +1,7 @@
 import unittest
 
-from src.main.python.asm_instructions import AsmInstructions
-from src.main.python.logger import Logger
+from asm_instructions import AsmInstructions
+from logger import Logger
 
 
 class TestAsmInstructions(unittest.TestCase):

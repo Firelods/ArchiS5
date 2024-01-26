@@ -1,10 +1,10 @@
 import inspect
 import json
 
-from src.main.python.asm_reader import AsmReader
-from src.main.python.bcolors import bcolors
-from src.main.python.functions import Functions
-from src.main.python.logger import Logger
+from asm_reader import AsmReader
+from bcolors import bcolors
+from functions import Functions
+from logger import Logger
 
 
 class AsmParser:
@@ -34,7 +34,8 @@ class AsmParser:
         actual = asm_reader.read_bin_file(path)
 
         # Show the difference between the expected and actual output
-        self.show_difference(expected, actual)
+        if expected is not None:
+            self.show_difference(expected, actual)
 
     def get_instruction_set(self):
         # Read the json file locate at : src/main/resources/instructions_set.json

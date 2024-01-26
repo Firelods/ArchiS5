@@ -1,7 +1,7 @@
 import unittest
 
-from src.main.python.functions import Functions
-from src.main.python.logger import Logger
+from functions import Functions
+from logger import Logger
 
 
 class TestFunctions(unittest.TestCase):

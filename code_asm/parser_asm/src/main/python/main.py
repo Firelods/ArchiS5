@@ -1,10 +1,10 @@
 import sys
 
-from src.main.python.asm_parser import AsmParser
-from src.main.python.asm_reader import AsmReader
-from src.main.python.file_founder import FilesFounder
-from src.main.python.functions import Functions
-from src.main.python.logger import Logger
+from asm_parser import AsmParser
+from asm_reader import AsmReader
+from file_founder import FilesFounder
+from functions import Functions
+from logger import Logger
 
 
 def main(_verbose: bool, _save_log: bool):
