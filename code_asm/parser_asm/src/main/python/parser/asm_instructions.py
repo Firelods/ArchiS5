@@ -74,7 +74,7 @@ class AsmInstructions:
         imm8 = expression[2][1:]
         rd = self.get_register_number(rd)
         imm8 = self.get_immediate(imm8, 8)
-        message = f"00 {codop} {imm8} {rd}"
+        message = f"00 {codop} {rd} {imm8}"
         self.logger.log(self.class_name, self.instruction_rd_imm8.__name__, message)
         return "00" + codop + rd + imm8
 

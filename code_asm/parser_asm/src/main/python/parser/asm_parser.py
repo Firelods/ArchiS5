@@ -105,6 +105,7 @@ class AsmParser:
             b = self.parse_line(line, line_number)
             if b is not None and b != "":
                 binary.append(b)
+            if b is not None:
                 line_number += 1
         return binary
 

@@ -268,5 +268,6 @@ class TestFunctions(unittest.TestCase):
         expected = "1101101111111111"
         self.assertEqual(expected, result)
 
+
 if __name__ == '__main__':
     unittest.main()

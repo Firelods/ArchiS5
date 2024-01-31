@@ -31,6 +31,12 @@
       "#imm": 0,
       "R": 3,
       "function": "subs_Rd_Rn_Rm"
+    },
+    "MOVS": {
+      "doublon": true,
+      "#imm": 0,
+      "R": 2,
+      "function": "movs_Rd_Rn"
     }
   },
   "operation_arithmetique_2": {
@@ -47,7 +53,7 @@
       "function": "subs_Rd_Rn_imm3"
     },
     "MOVS": {
-      "doublon": false,
+      "doublon": true,
       "#imm": 1,
       "R": 1,
       "function": "movs_Rd_imm8"
@@ -236,7 +242,7 @@
       "doublon": false,
       "#imm": 1,
       "R": 0,
-      "function": "bcc"
+      "function": "bcc_blo"
     },
     "BLO": {
       "doublon": false,

@@ -79,6 +79,17 @@ class Functions:
         # example of expression : ["movs", "r1", "#3"]
         return self.asm_instructions.instruction_rd_imm8(expression, "100")
 
+    def movs_Rd_Rn(self, expression: list):
+        """
+        :param expression:
+        :return:
+        """
+        # example of expression : ["movs", "r1", "r2"]
+        # transform the second register in an immediate value
+        # add to the expression the immediate #0
+        expression.append("#0")
+        return self.asm_instructions.instruction_imm5_rd_rm(expression, "000")
+
     def cmp_Rd_imm8(self, expression: list):
         """
         :param expression:
@@ -321,13 +332,13 @@ class Functions:
         return self.asm_instructions.conditional_branch(expression, "0010", self.labels,
                                                         label_source)
 
-    def bcc(self, expression: list, label_source: int):
+    def bcc_blo(self, expression: list, label_source: int):
         """
         :param label_source:
         :param expression:
         :return:
         """
-        # example of expression : ["bcc", "#3"]
+        # example of expression : ["bcc/blo", "#3"]
         return self.asm_instructions.conditional_branch(expression, "0011", self.labels,
                                                         label_source)
 
