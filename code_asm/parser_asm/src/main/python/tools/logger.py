@@ -46,7 +46,7 @@ class Logger:
         if self.verbose:
             print(f"{message}", end=end)
         if self.save_log_activate:
-            self.save_log(message, end)
+            self.save_log_only_message(message, end)
 
     def warning(self, class_name: str, function_name: str, message, end="\n"):
         if self.verbose:
@@ -64,6 +64,6 @@ class Logger:
         with open(self.log_path, "a") as file:
             file.write(f"LOGGER({class_name}[{function_name}]): {message}{end}")
 
-    def save_log(self, message, end="\n"):
+    def save_log_only_message(self, message, end="\n"):
         with open(self.log_path, "a") as file:
             file.write(f"{message}{end}")

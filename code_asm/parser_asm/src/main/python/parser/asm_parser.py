@@ -165,7 +165,6 @@ class AsmParser:
         _next = False
         filtered_instructions = []
         for instruction in instructions:
-            print(instruction)
             # Replace 'sp' with '#0' if no '#' follows 'sp'
             if _next:
                 _next = False
