@@ -260,23 +260,33 @@ class AsmParser:
         correct_count = 0
 
         for i in range(len(expected)):
-            if expected[i] != actual[i]:
-                # print the characters that change in red
-                message = "Expected/Actual: "
-                self.logger.log(self.class_name, self.show_difference.__name__, message, end="")
-                for j in range(len(expected[i])):
-                    if expected[i][j] != actual[i][j]:
-                        message = bcolors.FAIL + expected[i][j] + bcolors.ENDC
-                        self.logger.log_only_message(message, end="")
-                    else:
-                        message = bcolors.OKGREEN + expected[i][j] + bcolors.ENDC
-                        self.logger.log_only_message(message, end="")
-                message = f"/{actual[i]} [KO]\n"
-                self.logger.log_only_message(message)
-            else:
-                correct_count += 1
-                message = f"Expected/Actual: {bcolors.OKGREEN + expected[i] + bcolors.ENDC}/{actual[i]} [OK]\n"
-                self.logger.log(self.class_name, self.show_difference.__name__, message)
+            try:
+                if expected[i] != actual[i]:
+                    # print the characters that change in red
+                    message = "Expected/Actual: "
+                    self.logger.log(self.class_name, self.show_difference.__name__, message, end="")
+                    for j in range(len(expected[i])):
+                        if expected[i][j] != actual[i][j]:
+                            message = bcolors.FAIL + expected[i][j] + bcolors.ENDC
+                            self.logger.log_only_message(message, end="")
+                        else:
+                            message = bcolors.OKGREEN + expected[i][j] + bcolors.ENDC
+                            self.logger.log_only_message(message, end="")
+                    message = f"/{actual[i]} [KO]\n"
+                    self.logger.log_only_message(message)
+                else:
+                    correct_count += 1
+                    message = f"Expected/Actual: {bcolors.OKGREEN + expected[i] + bcolors.ENDC}/{actual[i]} [OK]\n"
+                    self.logger.log(self.class_name, self.show_difference.__name__, message)
+            except IndexError:
+                if i > len(expected):
+                    message = f"Expected/Actual: None/{bcolors.FAIL + actual[i] + bcolors.ENDC} [KO]\n"
+                    self.logger.log(self.class_name, self.show_difference.__name__, message)
+                    continue
+                elif i > len(actual):
+                    message = f"Expected/Actual: {bcolors.FAIL + expected[i] + bcolors.ENDC}/None [KO]\n"
+                    self.logger.log(self.class_name, self.show_difference.__name__, message)
+                    continue
 
         percentage_correct = (correct_count / len(expected)) * 100
         message = f"Percentage of Correctness: {percentage_correct:.2f}%"
