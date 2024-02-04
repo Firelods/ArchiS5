@@ -1,0 +1,202 @@
+LOGGER(FilesFounder[found_all_files]): Scanning directories
+LOGGER(FilesFounder[found_all_files]): Scanning conditional
+LOGGER(FilesFounder[found_all_files]): Scanning branch.s
+LOGGER(FilesFounder[found_all_files]): Scanning data_processing
+LOGGER(FilesFounder[found_all_files]): Scanning 1-4_instructions.s
+LOGGER(FilesFounder[found_all_files]): Scanning 11-12_instructions.s
+LOGGER(FilesFounder[found_all_files]): Scanning 13-16_instructions.s
+LOGGER(FilesFounder[found_all_files]): Scanning 5-10_instructions.s
+LOGGER(FilesFounder[found_all_files]): Scanning load_store
+LOGGER(FilesFounder[found_all_files]): Scanning load_store.s
+LOGGER(FilesFounder[found_all_files]): Scanning miscellaneous
+LOGGER(FilesFounder[found_all_files]): Scanning sp.s
+LOGGER(FilesFounder[found_all_files]): Scanning other
+LOGGER(FilesFounder[found_all_files]): Scanning 512Bank.s
+LOGGER(FilesFounder[found_all_files]): Scanning calckeyb.s
+LOGGER(FilesFounder[found_all_files]): Scanning calculator.s
+LOGGER(FilesFounder[found_all_files]): Scanning default_example.s
+LOGGER(FilesFounder[found_all_files]): Scanning simple_add.s
+LOGGER(FilesFounder[found_all_files]): Scanning test.s
+LOGGER(FilesFounder[found_all_files]): Scanning testfp.s
+LOGGER(FilesFounder[found_all_files]): Scanning tty.s
+LOGGER(FilesFounder[found_all_files]): Scanning shift_add_sub_mov
+LOGGER(FilesFounder[found_all_files]): Scanning 1-4_instructions.s
+LOGGER(FilesFounder[found_all_files]): Scanning 5-8_instructions.s
+LOGGER(FilesFounder[found_file_from_number]): Found files from numbers ['0']
+LOGGER(FilesFounder[found_file_from_number]): Found 0 branch.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 1 1-4_instructions.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 2 11-12_instructions.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 3 13-16_instructions.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 4 5-10_instructions.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 5 load_store.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 6 sp.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 7 512Bank.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 8 calckeyb.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 9 calculator.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 10 default_example.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 11 simple_add.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 12 test.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 13 testfp.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 14 tty.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 15 1-4_instructions.s from number 0
+LOGGER(FilesFounder[found_file_from_number]): Found 16 5-8_instructions.s from number 0
+LOGGER(AsmReader[read_asm_file]): Reading ../../../src/tests/resources/asm_files/conditional/branch.s
+LOGGER(AsmReader[read_bin_file]): Reading ../../../src/tests/resources/expected_binaries/conditional/branch.bin
+LOGGER(Functions[define_label]): Define label movs r0, #0
+LOGGER(Functions[is_label]): Check if movs r0, #0 is a label
+LOGGER(Functions[is_label]): movs r0, #0 is not a label
+LOGGER(Functions[define_label]): Define label movs r1, #1
+LOGGER(Functions[is_label]): Check if movs r1, #1 is a label
+LOGGER(Functions[is_label]): movs r1, #1 is not a label
+LOGGER(Functions[define_label]): Define label .goto:
+LOGGER(Functions[is_label]): Check if .goto: is a label
+LOGGER(Functions[is_label]): .goto: is a label
+LOGGER(Functions[define_label]): Label .goto defined number_of_instructions_labels=(2) => line_number=(2)
+LOGGER(Functions[define_label]): Define label movs r2, #20
+LOGGER(Functions[is_label]): Check if movs r2, #20 is a label
+LOGGER(Functions[is_label]): movs r2, #20 is not a label
+LOGGER(Functions[define_label]): Define label cmp r0, r1
+LOGGER(Functions[is_label]): Check if cmp r0, r1 is a label
+LOGGER(Functions[is_label]): cmp r0, r1 is not a label
+LOGGER(Functions[define_label]): Define label bMI .then1
+LOGGER(Functions[is_label]): Check if bMI .then1 is a label
+LOGGER(Functions[is_label]): bMI .then1 is not a label
+LOGGER(Functions[define_label]): Define label b .endif1
+LOGGER(Functions[is_label]): Check if b .endif1 is a label
+LOGGER(Functions[is_label]): b .endif1 is not a label
+LOGGER(Functions[define_label]): Define label .then1:
+LOGGER(Functions[is_label]): Check if .then1: is a label
+LOGGER(Functions[is_label]): .then1: is a label
+LOGGER(Functions[define_label]): Label .then1 defined number_of_instructions_labels=(6) => line_number=(7)
+LOGGER(Functions[define_label]): Define label rsbs r2, r2, #0
+LOGGER(Functions[is_label]): Check if rsbs r2, r2, #0 is a label
+LOGGER(Functions[is_label]): rsbs r2, r2, #0 is not a label
+LOGGER(Functions[define_label]): Define label .endif1:
+LOGGER(Functions[is_label]): Check if .endif1: is a label
+LOGGER(Functions[is_label]): .endif1: is a label
+LOGGER(Functions[define_label]): Label .endif1 defined number_of_instructions_labels=(7) => line_number=(9)
+LOGGER(Functions[define_label]): Define label cmp r2, r1
+LOGGER(Functions[is_label]): Check if cmp r2, r1 is a label
+LOGGER(Functions[is_label]): cmp r2, r1 is not a label
+LOGGER(Functions[define_label]): Define label bLT .then2
+LOGGER(Functions[is_label]): Check if bLT .then2 is a label
+LOGGER(Functions[is_label]): bLT .then2 is not a label
+LOGGER(Functions[define_label]): Define label b .endif2
+LOGGER(Functions[is_label]): Check if b .endif2 is a label
+LOGGER(Functions[is_label]): b .endif2 is not a label
+LOGGER(Functions[define_label]): Define label .then2:
+LOGGER(Functions[is_label]): Check if .then2: is a label
+LOGGER(Functions[is_label]): .then2: is a label
+LOGGER(Functions[define_label]): Label .then2 defined number_of_instructions_labels=(10) => line_number=(13)
+LOGGER(Functions[define_label]): Define label movs r0, #50
+LOGGER(Functions[is_label]): Check if movs r0, #50 is a label
+LOGGER(Functions[is_label]): movs r0, #50 is not a label
+LOGGER(Functions[define_label]): Define label b .goto
+LOGGER(Functions[is_label]): Check if b .goto is a label
+LOGGER(Functions[is_label]): b .goto is not a label
+LOGGER(Functions[define_label]): Define label .endif2:
+LOGGER(Functions[is_label]): Check if .endif2: is a label
+LOGGER(Functions[is_label]): .endif2: is a label
+LOGGER(Functions[define_label]): Label .endif2 defined number_of_instructions_labels=(12) => line_number=(16)
+LOGGER(Functions[define_label]): Define label adds r3, r0, r2
+LOGGER(Functions[is_label]): Check if adds r3, r0, r2 is a label
+LOGGER(Functions[is_label]): adds r3, r0, r2 is not a label
+LOGGER(Functions[set_number_of_instructions_labels]): Set number of instructions labels to 13
+LOGGER(Functions[set_number_of_labels]): Set number of labels to 18
+LOGGER(AsmParser[convert_into_binary]): ['MOVS', 'r0,', '#0']
+LOGGER(AsmParser[call_function]): Calling movs_Rd_imm8 with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r0,: 000
+LOGGER(AsmInstructions[get_immediate]): Get immediate from 0: 00000000
+LOGGER(AsmInstructions[instruction_rd_imm8]): 00 100 000 00000000
+LOGGER(AsmParser[convert_into_binary]): ['MOVS', 'r1,', '#1']
+LOGGER(AsmParser[call_function]): Calling movs_Rd_imm8 with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r1,: 001
+LOGGER(AsmInstructions[get_immediate]): Get immediate from 1: 00000001
+LOGGER(AsmInstructions[instruction_rd_imm8]): 00 100 001 00000001
+LOGGER(AsmParser[convert_into_binary]): ['MOVS', 'r2,', '#20']
+LOGGER(AsmParser[call_function]): Calling movs_Rd_imm8 with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r2,: 010
+LOGGER(AsmInstructions[get_immediate]): Get immediate from 20: 00010100
+LOGGER(AsmInstructions[instruction_rd_imm8]): 00 100 010 00010100
+LOGGER(AsmParser[convert_into_binary]): ['CMP', 'r0,', 'r1']
+LOGGER(AsmParser[call_function]): Calling cmp_Rn_Rm with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r0,: 000
+LOGGER(AsmInstructions[get_register_number]): Get register number from r1: 001
+LOGGER(AsmInstructions[instruction_rm_rdn]): 010000 1010 001 000
+LOGGER(AsmParser[convert_into_binary]): ['BMI', '.then1']
+LOGGER(AsmParser[call_function]): Calling bmi with OrderedDict([('expression', <Parameter "expression: list">), ('label_source', <Parameter "label_source: int">)])
+LOGGER(AsmInstructions[unconditional_branch]): label: .THEN1, line_label: 6, number_line: 4, offset: -1
+LOGGER(AsmInstructions[get_immediate_negative]): Get immediate from 0: 11111111
+LOGGER(AsmInstructions[conditional_branch]): 1101 0100 11111111
+LOGGER(AsmParser[convert_into_binary]): ['B', '.endif1']
+LOGGER(AsmParser[call_function]): Calling b with OrderedDict([('expression', <Parameter "expression: list">), ('label_source', <Parameter "label_source: int">)])
+LOGGER(AsmInstructions[unconditional_branch]): label: .ENDIF1, line_label: 7, number_line: 5, offset: -1
+LOGGER(AsmInstructions[get_immediate_negative]): Get immediate from 0: 11111111111
+LOGGER(AsmInstructions[unconditional_branch]): 11100 11111111111
+LOGGER(AsmParser[convert_into_binary]): ['RSBS', 'r2,', 'r2,', '#0']
+LOGGER(AsmParser[call_function]): Calling rsbs_Rd_Rn with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r2,: 010
+LOGGER(AsmInstructions[get_register_number]): Get register number from r2,: 010
+LOGGER(AsmInstructions[instruction_rm_rdn]): 010000 1001 010 010
+LOGGER(AsmParser[convert_into_binary]): ['CMP', 'r2,', 'r1']
+LOGGER(AsmParser[call_function]): Calling cmp_Rn_Rm with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r2,: 010
+LOGGER(AsmInstructions[get_register_number]): Get register number from r1: 001
+LOGGER(AsmInstructions[instruction_rm_rdn]): 010000 1010 001 010
+LOGGER(AsmParser[convert_into_binary]): ['BLT', '.then2']
+LOGGER(AsmParser[call_function]): Calling blt with OrderedDict([('expression', <Parameter "expression: list">), ('label_source', <Parameter "label_source: int">)])
+LOGGER(AsmInstructions[unconditional_branch]): label: .THEN2, line_label: 10, number_line: 8, offset: -1
+LOGGER(AsmInstructions[get_immediate_negative]): Get immediate from 0: 11111111
+LOGGER(AsmInstructions[conditional_branch]): 1101 1011 11111111
+LOGGER(AsmParser[convert_into_binary]): ['B', '.endif2']
+LOGGER(AsmParser[call_function]): Calling b with OrderedDict([('expression', <Parameter "expression: list">), ('label_source', <Parameter "label_source: int">)])
+LOGGER(AsmInstructions[unconditional_branch]): label: .ENDIF2, line_label: 12, number_line: 9, offset: 0
+LOGGER(AsmInstructions[get_immediate]): Get immediate from 0: 00000000000
+LOGGER(AsmInstructions[unconditional_branch]): 11100 00000000000
+LOGGER(AsmParser[convert_into_binary]): ['MOVS', 'r0,', '#50']
+LOGGER(AsmParser[call_function]): Calling movs_Rd_imm8 with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r0,: 000
+LOGGER(AsmInstructions[get_immediate]): Get immediate from 50: 00110010
+LOGGER(AsmInstructions[instruction_rd_imm8]): 00 100 000 00110010
+LOGGER(AsmParser[convert_into_binary]): ['B', '.goto']
+LOGGER(AsmParser[call_function]): Calling b with OrderedDict([('expression', <Parameter "expression: list">), ('label_source', <Parameter "label_source: int">)])
+LOGGER(AsmInstructions[unconditional_branch]): label: .GOTO, line_label: 2, number_line: 11, offset: -12
+LOGGER(AsmInstructions[get_immediate_negative]): Get immediate from 0: 11111110100
+LOGGER(AsmInstructions[unconditional_branch]): 11100 11111110100
+LOGGER(AsmParser[convert_into_binary]): ['ADDS', 'r3,', 'r0,', 'r2']
+LOGGER(AsmParser[call_function]): Calling adds_Rd_Rn_Rm with OrderedDict([('expression', <Parameter "expression: list">)])
+LOGGER(AsmInstructions[get_register_number]): Get register number from r3,: 011
+LOGGER(AsmInstructions[get_register_number]): Get register number from r0,: 000
+LOGGER(AsmInstructions[get_register_number]): Get register number from r2: 010
+LOGGER(AsmInstructions[instruction_rm_rd_rn]): 00 01100 010 000 011
+LOGGER(AsmParser[binary_to_hexa]): Converting binary to hexadecimal
+LOGGER(AsmParser[binary_to_hexa]): ['2000', '2101', '2214', '4288', 'd4ff', 'e7ff', '4252', '428a', 'dbff', 'e000', '2032', 'e7f4', '1883']
+LOGGER(AsmParser[save_hexa_as_bin]): Saving the hexadecimal in ../../../src/tests/resources/output_binaries/conditional/branch.bin
+LOGGER(AsmReader[read_bin_file]): Reading ../../../src/tests/resources/output_binaries/conditional/branch.bin
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m2000[0m/2000 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m2101[0m/2101 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m2214[0m/2214 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m4288[0m/4288 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92md4ff[0m/d4ff [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92me7ff[0m/e7ff [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m4252[0m/4252 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m428a[0m/428a [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92mdbff[0m/dbff [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92me000[0m/e000 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m2032[0m/2032 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92me7f4[0m/e7f4 [OK]
+
+LOGGER(AsmParser[show_difference]): Expected/Actual: [92m1883[0m/1883 [OK]
+
+LOGGER(AsmParser[show_difference]): Percentage of Correctness: 100.00%
